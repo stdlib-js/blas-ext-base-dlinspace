@@ -81,7 +81,7 @@ The function has the following parameters:
 -   **N**: number of indexed elements.
 -   **start**: start of interval.
 -   **stop**: end of interval.
--   **endpoint**: boolean indicating whether to include the `stop` value when writing values to the input array.
+-   **endpoint**: boolean indicating whether to include the `stop` value when writing values to the input array.  If `true`, the input array is filled with evenly spaced values over the closed interval `[start, stop]`. If `false`, the input array is filled with evenly spaced values over the half-open interval `[start, stop)`.
 -   **x**: input [`Float64Array`][@stdlib/array/float64].
 -   **strideX**: stride length.
 
@@ -148,6 +148,7 @@ dlinspace.ndarray( 3, 1.0, 3.0, true, x, 1, x.length-3 );
 
 ## Notes
 
+-   Let `M` be the number of generated values (which is either `N` or `N+1` depending on whether `endpoint` is `true` or `false`, respectively). The spacing between values is thus given by `Δ = (stop-start)/(M-1)`.
 -   If `N <= 0`, both functions return `x` unchanged.
 
 </section>
@@ -220,7 +221,7 @@ The function accepts the following arguments:
 -   **N**: `[in] CBLAS_INT` number of indexed elements.
 -   **start**: `[in] double` start of interval.
 -   **stop**: `[in] double` end of interval.
--   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array.
+-   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array.  If `true`, the input array is filled with evenly spaced values over the closed interval `[start, stop]`. If `false`, the input array is filled with evenly spaced values over the half-open interval `[start, stop)`.
 -   **X**: `[out] double*` input array.
 -   **strideX**: `[in] CBLAS_INT` stride length.
 
@@ -245,7 +246,7 @@ The function accepts the following arguments:
 -   **N**: `[in] CBLAS_INT` number of indexed elements.
 -   **start**: `[in] double` start of interval.
 -   **stop**: `[in] double` end of interval.
--   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array.
+-   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array.  If `true`, the input array is filled with evenly spaced values over the closed interval `[start, stop]`. If `false`, the input array is filled with evenly spaced values over the half-open interval `[start, stop)`.
 -   **X**: `[out] double*` input array.
 -   **strideX**: `[in] CBLAS_INT` stride length.
 -   **offsetX**: `[in] CBLAS_INT` starting index.
