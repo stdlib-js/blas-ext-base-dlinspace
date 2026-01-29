@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import dlinspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@esm/index.mjs';
+import dlinspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@v0.1.0-esm/index.mjs';
 ```
 
 #### dlinspace( N, start, stop, endpoint, x, strideX )
@@ -172,7 +172,7 @@ dlinspace.ndarray( 3, 1.0, 3.0, true, x, 1, x.length-3 );
 <script type="module">
 
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
-import dlinspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@esm/index.mjs';
+import dlinspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@v0.1.0-esm/index.mjs';
 
 var x = discreteUniform( 10, -100, 100, {
     'dtype': 'float64'
