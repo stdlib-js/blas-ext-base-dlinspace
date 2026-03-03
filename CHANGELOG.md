@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`dbaa3a7`](https://github.com/stdlib-js/stdlib/commit/dbaa3a787a2c6c9e1277d069e68d326e7fe45a6d) - **bench:** refactor to use string interpolation in `blas/ext/base/dlinspace` [(#10643)](https://github.com/stdlib-js/stdlib/pull/10643) _(by Prajjwal Bajpai)_
 -   [`a408eb8`](https://github.com/stdlib-js/stdlib/commit/a408eb86567546c9ff9da1fa330a77814ce0315c) - **bench:** refactor to use dynamic memory allocation in `blas/ext/base/dlinspace` [(#10642)](https://github.com/stdlib-js/stdlib/pull/10642) _(by Prajjwal Bajpai)_
 
 </details>
