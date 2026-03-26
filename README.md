@@ -35,32 +35,38 @@ limitations under the License.
 
 > Fill a double-precision floating-point strided array with linearly spaced values over a specified interval.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/blas-ext-base-dlinspace
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var dlinspace = require( '@stdlib/blas-ext-base-dlinspace' );
+dlinspace = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var dlinspace = require( 'path/to/vendor/umd/blas-ext-base-dlinspace/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.dlinspace;
+})();
+</script>
 ```
 
 #### dlinspace( N, start, stop, endpoint, x, strideX )
@@ -183,9 +189,14 @@ dlinspace.ndarray( 3, 1.0, 3.0, true, x, 1, x.length-3 );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var dlinspace = require( '@stdlib/blas-ext-base-dlinspace' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-dlinspace@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {
 
 var x = discreteUniform( 10, -100, 100, {
     'dtype': 'float64'
@@ -194,6 +205,11 @@ console.log( x );
 
 dlinspace( x.length, 0.0, 10.0, true, x, 1 );
 console.log( x );
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -202,133 +218,7 @@ console.log( x );
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/blas/ext/base/dlinspace.h"
-```
-
-#### stdlib_strided_dlinspace( N, start, stop, endpoint, \*X, strideX )
-
-Fills a double-precision floating-point strided array with linearly spaced values over a specified interval.
-
-```c
-#include <stdbool.h>
-
-double x[] = { 0.0, 0.0, 0.0, 0.0 };
-
-stdlib_strided_dlinspace( 4, 1.0, 5.0, true, x, 1 );
-```
-
-The function accepts the following arguments:
-
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **start**: `[in] double` start of interval.
--   **stop**: `[in] double` end of interval.
--   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array. If `true`, the input array is filled with evenly spaced values over the closed interval `[start, stop]`. If `false`, the input array is filled with evenly spaced values over the half-open interval `[start, stop)`.
--   **X**: `[out] double*` input array.
--   **strideX**: `[in] CBLAS_INT` stride length.
-
-```c
-void stdlib_strided_dlinspace( const CBLAS_INT N, const double start, const double stop, const bool endpoint, double *X, const CBLAS_INT strideX );
-```
-
-<!-- lint disable maximum-heading-length -->
-
-#### stdlib_strided_dlinspace_ndarray( N, start, stop, endpoint, \*X, strideX, offsetX )
-
-Fills a double-precision floating-point strided array with linearly spaced values over a specified interval using alternative indexing semantics.
-
-```c
-#include <stdbool.h>
-
-double x[] = { 0.0, 0.0, 0.0, 0.0 };
-
-stdlib_strided_dlinspace_ndarray( 4, 1.0, 5.0, true, x, 1, 0 );
-```
-
-The function accepts the following arguments:
-
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **start**: `[in] double` start of interval.
--   **stop**: `[in] double` end of interval.
--   **endpoint**: `[in] bool` boolean indicating whether to include the `stop` value when writing values to the input array. If `true`, the input array is filled with evenly spaced values over the closed interval `[start, stop]`. If `false`, the input array is filled with evenly spaced values over the half-open interval `[start, stop)`.
--   **X**: `[out] double*` input array.
--   **strideX**: `[in] CBLAS_INT` stride length.
--   **offsetX**: `[in] CBLAS_INT` starting index.
-
-```c
-void stdlib_strided_dlinspace_ndarray( const CBLAS_INT N, const double start, const double stop, const bool endpoint, double *X, const CBLAS_INT strideX, const CBLAS_INT offsetX );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/blas/ext/base/dlinspace.h"
-#include <stdio.h>
-#include <stdbool.h>
-
-int main( void ) {
-    // Create a strided array:
-    double x[] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
-
-    // Specify the number of indexed elements:
-    const int N = 8;
-
-    // Specify a stride:
-    const int strideX = 1;
-
-    // Fill the array:
-    stdlib_strided_dlinspace( N, 0.0, 10.0, true, x, strideX );
-
-    // Print the result:
-    for ( int i = 0; i < 8; i++ ) {
-        printf( "x[ %i ] = %lf\n", i, x[ i ] );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -410,7 +300,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/blas-ext-base-dlinspace/main/LICENSE
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/umd
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
