@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-03-03)
+## Unreleased (2026-03-26)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`f9d1409`](https://github.com/stdlib-js/stdlib/commit/f9d140985e169d34f4e66bd770dc675ea28588a3) - **docs:** add missing JSDoc comment _(by Athan Reines)_
 -   [`dbaa3a7`](https://github.com/stdlib-js/stdlib/commit/dbaa3a787a2c6c9e1277d069e68d326e7fe45a6d) - **bench:** refactor to use string interpolation in `blas/ext/base/dlinspace` [(#10643)](https://github.com/stdlib-js/stdlib/pull/10643) _(by Prajjwal Bajpai)_
 -   [`a408eb8`](https://github.com/stdlib-js/stdlib/commit/a408eb86567546c9ff9da1fa330a77814ce0315c) - **bench:** refactor to use dynamic memory allocation in `blas/ext/base/dlinspace` [(#10642)](https://github.com/stdlib-js/stdlib/pull/10642) _(by Prajjwal Bajpai)_
 
@@ -25,8 +26,9 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   Prajjwal Bajpai
 
 </section>
